@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: fuelx-station-manager
+    runtime: python
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: python server.py
+    healthCheckPath: /healthz
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.3
+      - key: DATA_DIR
+        value: /data
+    disk:
+      name: fuelx-data
+      mountPath: /data
+      sizeGB: 1

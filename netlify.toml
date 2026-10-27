@@ -1,0 +1,12 @@
+# Netlify hosts the website (the "public" folder).
+# All /api/* requests are forwarded to your FUELX server (see DEPLOY-NETLIFY.md).
+# STEP: replace YOUR-APP-NAME below with your real Render address, then save.
+
+[build]
+  publish = "public"
+
+[[redirects]]
+  from = "/api/*"
+  to = "https://YOUR-APP-NAME.onrender.com/api/:splat"
+  status = 200
+  force = true
